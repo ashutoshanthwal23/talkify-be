@@ -1,7 +1,9 @@
 import express from "express";
 import { Server } from "socket.io";
 import { createServer } from "http";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 
 const server = createServer(app);
@@ -146,5 +148,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(process.env.PORT, () => {
-  console.log("server is listening");
+  console.log("server is listening at:", process.env.PORT);
 });
